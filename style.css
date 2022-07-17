@@ -1,0 +1,179 @@
+    /* Global */
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("resource/bg.png") no-repeat;
+    background-size: cover;
+    z-index: -2;
+}
+
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+
+.invisible {
+    display: none;
+}
+
+    /* HS */
+
+#hot-stations {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.hot-station {
+    width: 122px;
+    height: 77px;
+    font-size: 22px;
+    color: transparent;
+    background: url("resource/hs.png") no-repeat;
+    text-shadow:
+                10px -2px 1px #3b3b3b,
+                11px -2px 1px white;
+    position: relative;
+}
+
+    /* HS Dishes */
+
+.hs-dish {
+    position: absolute;
+    width: 122px;
+    height: 77px;
+    background-repeat: no-repeat;
+    top: 20px;
+    left: 8px;
+    animation-name: side-appear;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.hs-counter {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 55px;
+    bottom: 25px;
+    color: white;
+    font-size: 32px;
+    text-shadow: none;
+}
+
+    /* Order Trays */
+
+main section:first-of-type {
+    margin-top: 50px;
+}
+
+#orders {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: max-content;
+    margin-right: 0;
+}
+
+.tray {
+    margin-bottom: 5px;
+    position: relative;
+    width: 64px;
+    height: 66px;
+    padding-left: 2px;
+    font-family: "Inconsolata", sans-serif;
+    font-size: 32px;
+    color: #3b3b3b;
+    cursor: pointer;
+}
+
+.tray.idle {
+    background: url("resource/order-tray.png") no-repeat;
+}
+
+.tray.selected {
+    background: url("resource/order-tray-selected.png") no-repeat;
+}
+
+.order-tray {
+    width: 320px;
+    height: 65px;
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+
+    /* Template Styles */
+
+.dish {
+    content: "";
+    width: 320px;
+    height: 65px;
+    position: absolute;
+    left: -102px;
+    top: 4px;
+    z-index: -1;
+    background: no-repeat;
+    animation-name: appear;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+    /* Customers */
+
+#client-base {
+    position: relative;
+    /*left: -700px;*/
+}
+
+.customer {
+    display: inline-flex;
+    position: relative;
+    bottom: 22px;
+    width: 192px;
+    height: 385px;
+}
+
+.customer-spawn {
+    left: -402px;
+    animation-name: appear;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.1, 0.3, 0.9, 0.5);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+    /* Hovers */
+
+    .hot-station:hover {
+        background-image: url("resource/hs-select.png");
+        transform: scale(1.1);
+    }
+
+    .order-tray:hover .dish {
+        transform: scale(1.05) translateX(4px) translateY(-1px);
+        transition-duration: 0.1s;
+    }
+
+    .order-tray:hover .tray {
+        background-image: url("resource/order-tray-selected.png");
+    }
+
+    /* Animations */
+
+@keyframes appear {
+    from {left: -402px;}
+    to {left: -2px;}
+}
+
+@keyframes side-appear {
+    from {top: -32px;}
+    to {top: 20px;}
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cook!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <section>
+        <ol id="hot-stations">
+            <li id="hs-1" class="hot-station" data-status="empty"><span><sub>HS</sub>1</span></li>
+            <li id="hs-2" class="hot-station" data-status="empty"><span><sub>HS</sub>2</span></li>
+            <li id="hs-3" class="hot-station" data-status="empty"><span><sub>HS</sub>3</span></li>
+            <li id="hs-4" class="hot-station" data-status="empty"><span><sub>HS</sub>4</span></li>
+            <li id="hs-5" class="hot-station" data-status="empty"><span><sub>HS</sub>5</span></li>
+            <li id="hs-6" class="hot-station" data-status="empty"><span><sub>HS</sub>6</span></li>
+        </ol>
+    </section>
+</header>
+<main>
+    <section id="main-section">
+        <ol id="orders">
+            <li id="order-1" class="tray idle" data-status="empty">1<div class="order-tray" data-status="empty"></div></li>
+            <li id="order-2" class="tray idle" data-status="empty">2<div class="order-tray" data-status="empty"></div></li>
+            <li id="order-3" class="tray idle" data-status="empty">3<div class="order-tray" data-status="empty"></div></li>
+            <li id="order-4" class="tray idle" data-status="empty">4<div class="order-tray" data-status="empty"></div></li>
+            <li id="order-5" class="tray idle" data-status="empty">5<div class="order-tray" data-status="empty"></div></li>
+            <li id="order-6" class="tray idle" data-status="empty">6<div class="order-tray" data-status="empty"></div></li>
+        </ol>
+    </section>
+</main>
+<footer>
+    <section id="bar">
+        <div id="client-base"></div>
+    </section>
+</footer>
+
+<template id="order-template">
+    <div class="dish"></div>
+</template>
+
+<template id="hs-template">
+    <div class="hs-dish">
+        <span class="hs-counter"></span>
+        <span class="hs-diagram"></span>
+    </div>
+</template>
+
+<audio class="order-bell-audio invisible">
+    <source src="resource/audio/bell.mp3" type="audio/mpeg">
+<!--    <source src="bell.ogg" type="audio/ogg">-->
+</audio>
+
+<script type="module" src="main.js"></script>
+<!--<script src="resource/musquito/dist/musquito.min.js"></script>-->
+</body>
+</html>
