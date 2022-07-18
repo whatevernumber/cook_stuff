@@ -71,3 +71,5 @@ const callOrders = () => {
 }};
 
 setInterval(callOrders, randomize(100, 200, 0));
+
+export {callOrders};
