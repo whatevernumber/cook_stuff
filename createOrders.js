@@ -62,7 +62,15 @@ const createOrder = (TRAYS, dishes) => {
     }
 };
 
-const callOrders = () => {
+const callOrders = (tray) => {
+
+    if (tray) {
+        if (tray.dataset.status === 'empty') {
+        busyStatus = 'free';
+    }
+}
+    
+
     if (busyStatus === 'free') {
     setTimeout(() => {
         createOrder(TRAYS, Dishes[randomize(0, Dishes.length - 1, 0)]);
