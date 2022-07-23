@@ -29,3 +29,5 @@ const addSideDish = (evt) => {
 };
 
 HOTSTATIONS.addEventListener('click', addSideDish);
+
+export { HOTSTATIONS };
