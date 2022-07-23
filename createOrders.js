@@ -70,7 +70,6 @@ const callOrders = (tray) => {
     }
 }
     
-
     if (busyStatus === 'free') {
     setTimeout(() => {
         createOrder(TRAYS, Dishes[randomize(0, Dishes.length - 1, 0)]);
