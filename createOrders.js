@@ -20,14 +20,14 @@ const Dishes = [
     },
 ];
 
-const TRAYS = document.getElementsByClassName('order-tray');
+const TRAYS = Array.from(document.getElementsByClassName('order-tray'));
 
-    /* Audio (not working) */
+/* Audio (not working) */
 
 const orderBell = new Audio('./resource/audio/bell.mp3');
 const playAudio = () => orderBell.play();
 
-    /* Setting all trays available for orders to appear */
+/* Setting all trays available for orders to appear */
 
 const emptyTrays = (trays) => {
     for (let tray of trays) {
@@ -37,7 +37,7 @@ const emptyTrays = (trays) => {
 
 document.onload = () => {emptyTrays(TRAYS)};
 
-    /* Calling orders when trays are empty & disabling them for acquiring more than 1 order at a time */
+/* Calling orders when trays are empty & disabling them for acquiring more than 1 order at a time */
 
 let busyStatus = 'free';
 
@@ -46,7 +46,7 @@ const createOrder = (TRAYS, dishes) => {
     ORDER.querySelector('div.dish').style.backgroundImage = dishes.image;
 
     const emptyTrays = [];
-    Array.from(TRAYS).forEach((tray) => {
+    TRAYS.forEach((tray) => {
         if (tray.dataset.status === 'empty') {
             emptyTrays.push(tray);
         }
@@ -55,9 +55,9 @@ const createOrder = (TRAYS, dishes) => {
     try {
         emptyTrays[0].appendChild(ORDER);
         emptyTrays[0].dataset.status = 'occupied';
-		spawnCustomer();
+        spawnCustomer();
     } catch(err) {
-        console.log('All trays are occupied!');
+        // console.log('All trays are occupied!');
         return busyStatus = 'busy';
     }
 };
@@ -65,18 +65,27 @@ const createOrder = (TRAYS, dishes) => {
 const callOrders = (tray) => {
 
     if (tray) {
-        if (tray.dataset.status === 'empty') {
-        busyStatus = 'free';
+        if (tray.dataset.status === 'complete') {
+            tray.dataset.status = 'empty';
+            busyStatus = 'free';
+        }
+    } // GP-Variant; requires an argument & a parameter "tray" fed
+                     // to the fn at giveOrder.js
+
+    // if (TRAYS.some((element) => element.dataset.status === 'complete')) {
+    //     busyStatus = 'free';
+    // } // KR-Variant
+
+    if (busyStatus === 'free') {
+        setTimeout(() => {
+                createOrder(TRAYS, Dishes[randomize(0, Dishes.length - 1, 0)]);
+            },
+            randomize(100, 200, 0));
     }
 }
-    
-    if (busyStatus === 'free') {
-    setTimeout(() => {
-        createOrder(TRAYS, Dishes[randomize(0, Dishes.length - 1, 0)]);
-        },
-        randomize(100, 200, 0));
-}};
 
-setInterval(callOrders, randomize(100, 200, 0));
+setInterval(callOrders, randomize(200, 500, 0));
 
-export {callOrders};
+console.log(busyStatus);
+
+export {TRAYS, callOrders};
