@@ -130,14 +130,15 @@ main section:first-of-type {
 
 #client-base {
     position: relative;
+    display: flex;
     /*left: -700px;*/
 }
 
 .customer {
-    display: inline-flex;
+    display: flex;
     position: relative;
     bottom: 116px;
-    width: 192px;
+    min-width: 192px;
     height: 385px;
     z-index: -3;
 }
