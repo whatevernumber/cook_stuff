@@ -34,4 +34,3 @@ orderTrays.forEach((tray) => {
             console.log('You can set an action triggering on this event!');
         })
     });
-
