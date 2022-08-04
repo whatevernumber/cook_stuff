@@ -1,3 +1,5 @@
+import {TRAYS} from './createOrders.js';
+
 const CUSTOMERS = [
 	{
 		name: 'Wesker',
@@ -9,7 +11,11 @@ const spawnCustomer = () => {
 	const customer = document.createElement('div');
 	customer.classList.add('customer-spawn', 'customer');
 	customer.style.backgroundImage = CUSTOMERS[0].img;
-	document.getElementById('client-base').appendChild(customer);
+	const base = document.getElementById('client-base');
+
+	// if (base.children.length < TRAYS.length) {
+		base.appendChild(customer);
+	// }
 };
 
 export {spawnCustomer};

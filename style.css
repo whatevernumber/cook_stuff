@@ -6,7 +6,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: url("resource/bg.png") no-repeat;
-    background-size: cover;
+    background-size: 100vw 100vh;
     z-index: -2;
 }
 
@@ -136,9 +136,10 @@ main section:first-of-type {
 .customer {
     display: inline-flex;
     position: relative;
-    bottom: 22px;
+    bottom: 116px;
     width: 192px;
     height: 385px;
+    z-index: -3;
 }
 
 .customer-spawn {
@@ -150,21 +151,26 @@ main section:first-of-type {
     animation-fill-mode: forwards;
 }
 
+.customer-leave {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
     /* Hovers */
 
-    .hot-station:hover {
-        background-image: url("resource/hs-select.png");
-        transform: scale(1.1);
-    }
+.hot-station:hover {
+    background-image: url("resource/hs-select.png");
+    transform: scale(1.1);
+}
 
-    .order-tray:hover .dish {
-        transform: scale(1.05) translateX(4px) translateY(-1px);
-        transition-duration: 0.1s;
-    }
+.order-tray:hover .dish {
+    transform: scale(1.05) translateX(4px) translateY(-1px);
+    transition-duration: 0.1s;
+}
 
-    .order-tray:hover .tray {
-        background-image: url("resource/order-tray-selected.png");
-    }
+.order-tray:hover .tray {
+    background-image: url("resource/order-tray-selected.png");
+}
 
     /* Animations */
 
