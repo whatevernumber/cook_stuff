@@ -2,14 +2,14 @@ import { callOrders } from './createOrders.js';
 import { spawnCustomer } from './customers.js';
 import { giveDish } from './giveSideDish.js';
 
-const orderTrays = Array.from(document.querySelectorAll('.order-tray'));
+const orderTrays = Array.from(document.$('.order-tray'));
 
 const completeEvent = new CustomEvent('give', {
     detail: {datasetStatus: 'complete'}
 });
 
 const despawnCustomer = (index) => {
-    const customers = document.querySelectorAll('.customer');
+    const customers = document.$('.customer');
     customers[index].classList.remove('customer-spawn');
     customers[index].classList.add('customer-leave');
     setTimeout(() => customers[index].remove(), 1000);
@@ -21,7 +21,7 @@ orderTrays.forEach((tray) => {
                 try {
                     const index = orderTrays.indexOf(evt.target);
                     despawnCustomer(index);
-                    tray.removeChild(tray.querySelector('.dish'));
+                    tray.removeChild(tray.$('.dish'));
                     tray.dataset.status = 'complete';
                     tray.dispatchEvent(completeEvent);
                     callOrders(tray);

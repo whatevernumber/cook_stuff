@@ -1,4 +1,4 @@
-const HOTSTATIONS = document.getElementById('hot-stations');
+const HOTSTATIONS = document.$('#hot-stations');
 
 const sideDishes = [
     {
@@ -12,10 +12,10 @@ const sideDishes = [
 const addSideDish = (evt) => {
     if (evt.target.nodeName === "LI") {
         const side = document
-            .querySelector("#hs-template")
+            .$("#hs-template")
             .content.cloneNode(true);
-        side.querySelector("div.hs-dish").style.backgroundImage = sideDishes[0].image;
-        side.querySelector('.hs-counter').textContent = sideDishes[0].quantity;
+        side.$("div.hs-dish").style.backgroundImage = sideDishes[0].image;
+        side.$('.hs-counter').textContent = sideDishes[0].quantity;
 
         if (evt.target.dataset.status === "empty") {
             try {
