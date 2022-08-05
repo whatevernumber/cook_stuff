@@ -32,7 +32,7 @@ orderTrays.forEach((tray) => {
 
         tray.addEventListener('give', () => {
             giveDish();
-            console.log('You can set an action triggering on this event!');
+            // console.log('You can set an action triggering on this event!');
         })
     });
 
