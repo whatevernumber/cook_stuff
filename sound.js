@@ -1,9 +1,7 @@
-const orderBell = document.querySelector('.order-bell-audio');
+/* Audio (not working) */
 
-let sound = new Howl({
-    src: ['sound.mp3']
-});
+const orderBell = new Audio('./resource/audio/bell.mp3');
 
-sound.play();
+orderBell.play();
 
 // let bell = ('https://raw.githubusercontent.com/the-nepodarok/the-nepodarok.github.io/main/files/bell.mp3');
