@@ -10,6 +10,7 @@ const completeEvent = new CustomEvent('give', {
 
 const despawnCustomer = (index) => {
     const customers = document.querySelectorAll('.customer');
+    customers[index].classList.remove('customer-spawn');
     customers[index].classList.add('customer-leave');
     setTimeout(() => customers[index].remove(), 1000);
 }

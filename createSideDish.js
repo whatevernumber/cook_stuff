@@ -10,7 +10,7 @@ const sideDishes = [
 ];
 
 const addSideDish = (evt) => {
-    if (evt.target.nodeName == "LI") {
+    if (evt.target.nodeName === "LI") {
         const side = document
             .querySelector("#hs-template")
             .content.cloneNode(true);

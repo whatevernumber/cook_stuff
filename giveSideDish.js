@@ -17,7 +17,7 @@ const giveDish = () => {
       dish.removeChild(dish.querySelector(".hs-dish"));
     }
   } catch {
-    console.log("Нет доступных блюд!");
+    console.log("No side dish available!");
   }
 };
 
