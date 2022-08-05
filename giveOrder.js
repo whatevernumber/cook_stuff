@@ -1,5 +1,4 @@
 import { callOrders } from './createOrders.js';
-import { spawnCustomer } from './customers.js';
 import { giveDish } from './giveSideDish.js';
 
 const orderTrays = Array.from(document.querySelectorAll('.order-tray'));
