@@ -9,10 +9,13 @@ const completeEvent = new CustomEvent('give', {
 });
 
 const despawnCustomer = (index) => {
-    const customers = document.querySelectorAll('.customer');
-    customers[index].classList.remove('customer-spawn');
-    customers[index].classList.add('customer-leave');
-    setTimeout(() => customers[index].remove(), 1000);
+    const customers = document.querySelectorAll('.customer-column');
+    const currentCustomer = customers[index].querySelector('.customer');
+
+    currentCustomer.classList.remove('customer-spawn');
+    currentCustomer.classList.add('customer-leave');
+    customers[index].dataset.status = "empty";
+    setTimeout(() => currentCustomer.remove(), 500);
 }
 
 orderTrays.forEach((tray) => {
