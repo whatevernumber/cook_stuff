@@ -1,7 +1,7 @@
 import { callOrders } from './createOrders.js';
 import { giveDish } from './giveSideDish.js';
 
-const orderTrays = Array.from(document.querySelectorAll('.order-tray'));
+const orderTrays = Array.from(document.$('.order-tray'));
 
 const completeEvent = new CustomEvent('give', {
     detail: {datasetStatus: 'complete'}
@@ -15,7 +15,7 @@ const despawnCustomer = (index) => {
     currentCustomer.classList.add('customer-leave');
     customers[index].dataset.status = "empty";
     setTimeout(() => currentCustomer.remove(), 500);
-}
+};
 
 orderTrays.forEach((tray) => {
         tray.addEventListener('click', (evt) => {
@@ -23,7 +23,7 @@ orderTrays.forEach((tray) => {
                 try {
                     const index = orderTrays.indexOf(evt.target);
                     despawnCustomer(index);
-                    tray.removeChild(tray.querySelector('.dish'));
+                    tray.removeChild(tray.$('.dish'));
                     tray.dataset.status = 'complete';
                     tray.dispatchEvent(completeEvent);
                     callOrders(tray);
@@ -33,7 +33,6 @@ orderTrays.forEach((tray) => {
         });
 
         tray.addEventListener('give', () => {
-            giveDish();
             console.log('You can set an action triggering on this event!');
         })
     });

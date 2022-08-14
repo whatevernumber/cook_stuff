@@ -1,5 +1,5 @@
-const orderTrays = document.getElementsByClassName('order-tray');
-const trays = document.getElementsByClassName('tray');
+const orderTrays = document.$('.order-tray');
+const trays = document.$('.tray');
 const IDLE = 'idle';
 const SELECTED = 'selected';
 

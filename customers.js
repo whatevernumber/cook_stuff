@@ -1,13 +1,18 @@
-import {TRAYS} from './createOrders.js';
+const TRAY_COUNT = 6;
 
 const CUSTOMERS = [
 	{
-		name: 'Wesker',
-		img: "url('resource/humans/wesker.png')",
+		name: `wesker`,
+		img: `url('resource/humans/wesker.png')`,
 	}
 ];
 
 const spawnCustomer = () => {
+	const customer = document.createElement('div');
+	customer.classList.add('customer-spawn', 'customer');
+	customer.style.backgroundImage = CUSTOMERS[0].img;
+	const base = document.getElementById('client-base');
+
 
 	const customersList = document.querySelectorAll('.customer-spawn');
 	
@@ -22,6 +27,6 @@ const spawnCustomer = () => {
 		setTimeout(() => base.appendChild(customer), 1000);
 		// }
 	}
-};
+
 
 export {spawnCustomer};

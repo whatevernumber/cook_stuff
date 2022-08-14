@@ -165,6 +165,23 @@ main section:first-of-type {
     transition: opacity 1s;
 }
 
+    /* Visitors */
+
+.gp-visitor_sitting {
+    position: absolute;
+    z-index: -3;
+}
+
+.sitting-visitor_1 {
+    left: 74%;
+    bottom: 23.5%;
+}
+
+.sitting-visitor_2 {
+    left: 39%;
+    bottom: 23.5%;
+}
+
     /* Hovers */
 
 .hot-station:hover {

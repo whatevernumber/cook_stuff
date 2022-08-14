@@ -1,7 +1,6 @@
 import {randomize} from './math.js';
 import {spawnCustomer} from './customers.js';
 
-const TRAY_COUNT = 6;
 const Dishes = [
     {
         name: 'Okra',
@@ -22,16 +21,11 @@ const Dishes = [
 
 const TRAYS = Array.from(document.getElementsByClassName('order-tray'));
 
-/* Audio (not working) */
-
-const orderBell = new Audio('./resource/audio/bell.mp3');
-const playAudio = () => orderBell.play();
-
 /* Setting all trays available for orders to appear */
 
 const emptyTrays = (trays) => {
     for (let tray of trays) {
-        tray.dataset.status = empty;
+        tray.dataset.status = 'empty';
     }
 };
 
@@ -42,8 +36,8 @@ document.onload = () => {emptyTrays(TRAYS)};
 let busyStatus = 'free';
 
 const createOrder = (TRAYS, dishes) => {
-    const ORDER = document.querySelector('#order-template').content.cloneNode(true);
-    ORDER.querySelector('div.dish').style.backgroundImage = dishes.image;
+    const ORDER = document.$('#order-template').content.cloneNode(true);
+    ORDER.$('div.dish').style.backgroundImage = dishes.image;
 
     const emptyTrays = [];
     TRAYS.forEach((tray) => {
