@@ -7,14 +7,21 @@ const completeEvent = new CustomEvent('give', {
     detail: {datasetStatus: 'complete'}
 });
 
-const despawnCustomer = (index) => {
-    const customers = document.querySelectorAll('.customer-column');
-    const currentCustomer = customers[index].querySelector('.customer');
 
+
+const despawnCustomer = (index) => {
+
+    try {
+    const customers = document.querySelectorAll('.customer-column');
+    const currentCustomer = customers[index].querySelector('.customer-spawn');
     currentCustomer.classList.remove('customer-spawn');
     currentCustomer.classList.add('customer-leave');
     customers[index].dataset.status = "empty";
-    setTimeout(() => currentCustomer.remove(), 500);
+    setTimeout(() => currentCustomer.remove(), 500); 
+    } catch {
+        console.log('No customers!');
+    }
+
 };
 
 orderTrays.forEach((tray) => {
