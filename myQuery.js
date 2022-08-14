@@ -7,7 +7,3 @@ Object.prototype.$ = function (query) {
     }
     return this.querySelector(query);
 }
-
-/* !!!  !!! !!! !!! !!! !!!
-   Does not work with selectors by attribute
-   (i.e. square brackets) */
