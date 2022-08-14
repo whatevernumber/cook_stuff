@@ -11,15 +11,14 @@ const spawnCustomer = () => {
 	const customer = document.createElement('div');
 	customer.classList.add('customer-spawn', 'customer');
 	customer.style.backgroundImage = CUSTOMERS[0].img;
-	const base = document.getElementById('client-base');
 
 	const customersList = document.querySelectorAll('.customer-spawn');
 	
-	if (customersList.length < 6) {
+	if (customersList.length < TRAY_COUNT) {
 		const customer = document.createElement('div');
 		customer.classList.add('customer-spawn', 'customer');
 		customer.style.backgroundImage = CUSTOMERS[0].img;
-		const base = document.getElementById('client-base').querySelector('[data-status="empty"]');
+		const base = document.$('#client-base').querySelector('[data-status="empty"]');
 		base.dataset.status = "occupied";
 		
 		// if (base.children.length < TRAYS.length) {

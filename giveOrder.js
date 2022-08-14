@@ -9,7 +9,7 @@ const completeEvent = new CustomEvent('give', {
 
 const despawnCustomer = (index) => {
     try {
-        const customers = document.querySelectorAll('.customer-column');
+        const customers = document.$('.customer-column');
         const currentCustomer = customers[index].$('.customer-spawn');
 
         currentCustomer.classList.remove('customer-spawn');
@@ -33,13 +33,13 @@ orderTrays.forEach((tray) => {
                     tray.dispatchEvent(completeEvent);
                     callOrders(tray);
                 } catch {
-                    console.log('Tray empty!');
+                    // console.log('Tray empty!');
                 }
             }
         });
 
     tray.addEventListener('give', () => {
-        console.log('You can set an action triggering on this event!');
+        // console.log('You can set an action triggering on this event!');
     })
 });
 
