@@ -12,13 +12,13 @@ const spawnCustomer = () => {
 	customer.classList.add('customer-spawn', 'customer');
 	customer.style.backgroundImage = CUSTOMERS[0].img;
 
-	const customersList = document.querySelectorAll('.customer-spawn');
+	const customersList = document.$$('.customer-spawn');
 	
 	if (customersList.length < TRAY_COUNT) {
 		const customer = document.createElement('div');
 		customer.classList.add('customer-spawn', 'customer');
 		customer.style.backgroundImage = CUSTOMERS[0].img;
-		const base = document.$('#client-base').querySelector('[data-status="empty"]');
+		const base = document.$('#client-base').$('[data-status="empty"]');
 		base.dataset.status = "occupied";
 		
 		// if (base.children.length < TRAYS.length) {

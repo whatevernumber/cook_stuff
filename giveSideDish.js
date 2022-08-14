@@ -3,7 +3,7 @@ import { randomize } from "./math.js";
 
 const giveDish = () => {
   try {
-    let availableDishes = HOTSTATIONS.querySelectorAll('[data-status="occupied"]');
+    let availableDishes = HOTSTATIONS.$$('[data-status="occupied"]');
     let dish = availableDishes[randomize(0, availableDishes.length - 1, 0)];
     let dishIndex = dish.$(".hs-counter");
     let portions = Number(dishIndex.textContent);

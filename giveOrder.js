@@ -1,7 +1,7 @@
 import { callOrders } from './createOrders.js';
 import { giveDish } from './giveSideDish.js';
 
-const orderTrays = Array.from(document.$('.order-tray'));
+const orderTrays = Array.from(document.$$('.order-tray'));
 
 const completeEvent = new CustomEvent('give', {
     detail: {datasetStatus: 'complete'}
@@ -9,7 +9,7 @@ const completeEvent = new CustomEvent('give', {
 
 const despawnCustomer = (index) => {
     try {
-        const customers = document.$('.customer-column');
+        const customers = document.$$('.customer-column');
         const currentCustomer = customers[index].$('.customer-spawn');
 
         currentCustomer.classList.remove('customer-spawn');
