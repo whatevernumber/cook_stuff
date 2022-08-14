@@ -23,6 +23,7 @@ orderTrays.forEach((tray) => {
                 try {
                     const index = orderTrays.indexOf(evt.target);
                     despawnCustomer(index);
+                    giveDish();
                     tray.removeChild(tray.$('.dish'));
                     tray.dataset.status = 'complete';
                     tray.dispatchEvent(completeEvent);
