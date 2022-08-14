@@ -27,6 +27,6 @@ const spawnCustomer = () => {
 		setTimeout(() => base.appendChild(customer), 1000);
 		// }
 	}
+}
 
-
-export {spawnCustomer};
+export {spawnCustomer}
