@@ -47,8 +47,8 @@ const createOrder = (TRAYS, dishes) => {
     });
 
     try {
-        emptyTrays[0].appendChild(ORDER);
         emptyTrays[0].dataset.status = 'occupied';
+        setTimeout(() => emptyTrays[0].appendChild(ORDER), 800);
         spawnCustomer();
     } catch(err) {
         // console.log('All trays are occupied!');

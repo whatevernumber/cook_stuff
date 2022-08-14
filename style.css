@@ -130,16 +130,25 @@ main section:first-of-type {
 
 #client-base {
     position: relative;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     /*left: -700px;*/
 }
 
+.customer-column {
+    display: flex;
+    min-width: 200px;
+}
+
 .customer {
-    display: inline-flex;
+    width: 190px;
+    height: 385px;
     position: relative;
     bottom: 116px;
-    width: 192px;
-    height: 385px;
     z-index: -2;
+    background-repeat: no-repeat;
 }
 
 .customer-spawn {
