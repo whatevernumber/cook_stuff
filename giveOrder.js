@@ -24,7 +24,7 @@ const despawnCustomer = (index) => {
 };
 
 document.addEventListener('keypress', (evt) => {
-    if (evt.key > 0 && evt.key < TRAY_COUNT) {
+    if (document.$('#cook-station').dataset.status !== 'busy' && evt.key > 0 && evt.key <= TRAY_COUNT) {
         const index = evt.key;
         const tray = orderTrays[index - 1];
         if (tray.dataset.status !== 'empty') {
@@ -47,6 +47,8 @@ orderTrays.forEach((tray) => {
         // console.log('You can set an action triggering on this event!');
     })
 });
+
+/* Not in Use */
 
 // orderTrays.forEach((tray) => {
 //         tray.addEventListener('keypress', (evt) => {

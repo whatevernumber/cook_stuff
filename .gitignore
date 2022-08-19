@@ -108,3 +108,4 @@ event-bg.png
 *.rar
 /resource/musquito/
 /.idea
+*.patch
