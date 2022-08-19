@@ -6,6 +6,7 @@ const Dishes = [
         name: 'Okra',
         origin: 'Japan',
         image: 'url("resource/main-dish/okra.png")',
+        recipe: ['Okra', 'Two Okras', 'No Okra'],
     },
     {
         name: 'Okra',
@@ -72,14 +73,14 @@ const callOrders = (tray) => {
 
     if (busyStatus === 'free') {
         setTimeout(() => {
-                createOrder(TRAYS, Dishes[randomize(0, Dishes.length - 1, 0)]);
+                createOrder(TRAYS, Dishes[randomize(0, Dishes.length - 1)]);
             },
-            randomize(100, 200, 0));
+            randomize(100, 200));
     }
 }
 
-setInterval(callOrders, randomize(200, 500, 0));
+setInterval(callOrders, randomize(200, 500));
 
 // console.log(busyStatus);
 
-export {TRAYS, callOrders};
+export {TRAYS, Dishes, callOrders};
