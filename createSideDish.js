@@ -1,3 +1,5 @@
+import {F_KEYS} from "./main.js";
+
 const HOTSTATIONS = document.$('#hot-stations');
 
 const sideDishes = [
@@ -10,15 +12,19 @@ const sideDishes = [
 ];
 
 const addSideDish = (evt) => {
-    if (evt.target.nodeName === "LI") {
+    if (F_KEYS.includes(evt.key)) {
+
+        const index = F_KEYS.indexOf(evt.key);
+        const targetHS = HOTSTATIONS.children[index];
+
         const side = document.$("#hs-template").content.cloneNode(true);
         side.$("div.hs-dish").style.backgroundImage = sideDishes[0].image;
         side.$('.hs-counter').textContent = sideDishes[0].quantity;
 
-        if (evt.target.dataset.status === "empty") {
+        if (targetHS.dataset.status === "empty") {
             try {
-                evt.target.appendChild(side);
-                evt.target.dataset.status = "occupied";
+                targetHS.appendChild(side);
+                targetHS.dataset.status = "occupied";
             } catch {
                 console.log('All hot stations are occupied!');
             }
@@ -26,6 +32,13 @@ const addSideDish = (evt) => {
     }
 };
 
-HOTSTATIONS.addEventListener('click', addSideDish);
+document.addEventListener('keydown', (evt) => {
+    if (F_KEYS.includes(evt.key)) {
+        evt.preventDefault();
+        addSideDish(evt);
+    }
+})
+
+// document.addEventListener('keypress', addSideDish);
 
 export { HOTSTATIONS };

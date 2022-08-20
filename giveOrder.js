@@ -1,7 +1,7 @@
-import { callOrders } from './createOrders.js';
+// import { callOrders } from './createOrders.js';
 import { giveDish } from './giveSideDish.js';
 import {cook} from './cook.js';
-import {TRAY_COUNT, F_KEYS} from './main.js';
+import {TRAY_COUNT} from './main.js';
 
 const orderTrays = Array.from(document.$$('.order-tray'));
 
@@ -9,9 +9,9 @@ const cookEvent = new CustomEvent('cook', {
     detail: {datasetStatus: 'cooking'}
 });
 
-const completeEvent = new CustomEvent('give', {
-    detail: {datasetStatus: 'complete'}
-});
+// const completeEvent = new CustomEvent('give', {
+//     detail: {datasetStatus: 'complete'}
+// });
 
 const despawnCustomer = (index) => {
     try {
@@ -47,12 +47,11 @@ document.addEventListener('keypress', (evt) => {
     }
 })
 
-document.addEventListener('keydown', (evt) => {
-    if (F_KEYS.includes(evt.key)) {
-        evt.preventDefault();
-        console.log(evt.key);
-    }
-})
+// document.addEventListener('keydown', (evt) => {
+//     if (F_KEYS.includes(evt.key)) {
+//         evt.preventDefault();
+//     }
+// })
 
 orderTrays.forEach((tray) => {
     tray.addEventListener('cook', () => {

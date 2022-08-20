@@ -12,11 +12,13 @@ const Dishes = [
         name: 'Okra',
         origin: 'Japan',
         image: 'url("resource/main-dish/okra.png")',
+        recipe: ['Two Okras'],
     },
     {
         name: 'Okra',
         origin: 'Japan',
         image: 'url("resource/main-dish/okra.png")',
+        recipe: ['No Okra'],
     },
 ];
 
@@ -39,6 +41,7 @@ let busyStatus = 'free';
 const createOrder = (TRAYS, dish) => {
     const ORDER = document.$('#order-template').content.cloneNode(true);
     ORDER.$('div.dish').style.backgroundImage = dish.image;
+    TRAYS.recipe.push(dish.recipe);
 
     const emptyTrays = [];
     TRAYS.forEach((tray) => {

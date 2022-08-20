@@ -16,4 +16,6 @@ const F_KEYS = (() => {
     return keys;
 })();
 
+Object.prototype.recipe = [];
+
 export {TRAY_COUNT, F_KEYS};
