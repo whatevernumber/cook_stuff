@@ -1,9 +1,13 @@
 import { callOrders } from './createOrders.js';
 import { giveDish } from './giveSideDish.js';
-// import {cook} from './cook.js';
-import {TRAY_COUNT} from './main.js';
+import {cook} from './cook.js';
+import {TRAY_COUNT, F_KEYS} from './main.js';
 
 const orderTrays = Array.from(document.$$('.order-tray'));
+
+const cookEvent = new CustomEvent('cook', {
+    detail: {datasetStatus: 'cooking'}
+});
 
 const completeEvent = new CustomEvent('give', {
     detail: {datasetStatus: 'complete'}
@@ -30,11 +34,12 @@ document.addEventListener('keypress', (evt) => {
         if (tray.dataset.status !== 'empty') {
             try {
                 giveDish();
-                tray.removeChild(tray.$('.dish'));
-                tray.dataset.status = 'complete';
-                tray.dispatchEvent(completeEvent);
-                despawnCustomer(index - 1);
-                callOrders(tray);
+                // tray.removeChild(tray.$('.dish'));
+                // tray.dataset.status = 'complete';
+                tray.dispatchEvent(cookEvent);
+                // despawnCustomer(index - 1);
+                cook(tray);
+                // callOrders(tray);
             } catch {
                 console.log('!');
             }
@@ -42,9 +47,17 @@ document.addEventListener('keypress', (evt) => {
     }
 })
 
+document.addEventListener('keydown', (evt) => {
+    if (F_KEYS.includes(evt.key)) {
+        evt.preventDefault();
+        console.log(evt.key);
+    }
+})
+
 orderTrays.forEach((tray) => {
-    tray.addEventListener('give', () => {
+    tray.addEventListener('cook', () => {
         // console.log('You can set an action triggering on this event!');
+        tray.dataset.status = 'cooking';
     })
 });
 

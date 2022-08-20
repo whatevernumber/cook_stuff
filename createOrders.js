@@ -36,9 +36,9 @@ document.onload = () => {emptyTrays(TRAYS)};
 
 let busyStatus = 'free';
 
-const createOrder = (TRAYS, dishes) => {
+const createOrder = (TRAYS, dish) => {
     const ORDER = document.$('#order-template').content.cloneNode(true);
-    ORDER.$('div.dish').style.backgroundImage = dishes.image;
+    ORDER.$('div.dish').style.backgroundImage = dish.image;
 
     const emptyTrays = [];
     TRAYS.forEach((tray) => {
