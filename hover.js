@@ -1,5 +1,5 @@
-const orderTrays = document.$('.order-tray');
-const trays = document.$('.tray');
+const orderTrays = document.$$('.order-tray');
+const trays = document.$$('.tray');
 const IDLE = 'idle';
 const SELECTED = 'selected';
 

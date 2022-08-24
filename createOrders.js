@@ -80,6 +80,6 @@ const callOrders = (tray) => {
 
 setInterval(callOrders, randomize(200, 500, 0));
 
-console.log(busyStatus);
+// console.log(busyStatus);
 
 export {TRAYS, callOrders};

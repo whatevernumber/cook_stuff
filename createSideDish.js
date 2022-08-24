@@ -11,9 +11,7 @@ const sideDishes = [
 
 const addSideDish = (evt) => {
     if (evt.target.nodeName === "LI") {
-        const side = document
-            .$("#hs-template")
-            .content.cloneNode(true);
+        const side = document.$("#hs-template").content.cloneNode(true);
         side.$("div.hs-dish").style.backgroundImage = sideDishes[0].image;
         side.$('.hs-counter').textContent = sideDishes[0].quantity;
 

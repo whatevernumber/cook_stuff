@@ -147,7 +147,7 @@ main section:first-of-type {
     height: 385px;
     position: relative;
     bottom: 116px;
-    z-index: -3;
+    z-index: -2;
     background-repeat: no-repeat;
 }
 
