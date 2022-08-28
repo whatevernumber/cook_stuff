@@ -1,4 +1,4 @@
-const TRAY_COUNT = 6;
+import {TRAY_COUNT} from './main.js';
 
 const CUSTOMERS = [
 	{

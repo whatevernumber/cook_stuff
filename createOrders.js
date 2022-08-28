@@ -6,16 +6,19 @@ const Dishes = [
         name: 'Okra',
         origin: 'Japan',
         image: 'url("resource/main-dish/okra.png")',
+        recipe: ['Okra', 'Two Okras', 'No Okra'],
     },
     {
         name: 'Okra',
         origin: 'Japan',
         image: 'url("resource/main-dish/okra.png")',
+        recipe: ['Two Okras'],
     },
     {
         name: 'Okra',
         origin: 'Japan',
         image: 'url("resource/main-dish/okra.png")',
+        recipe: ['No Okra'],
     },
 ];
 
@@ -35,9 +38,10 @@ document.onload = () => {emptyTrays(TRAYS)};
 
 let busyStatus = 'free';
 
-const createOrder = (TRAYS, dishes) => {
+const createOrder = (TRAYS, dish) => {
     const ORDER = document.$('#order-template').content.cloneNode(true);
-    ORDER.$('div.dish').style.backgroundImage = dishes.image;
+    ORDER.$('div.dish').style.backgroundImage = dish.image;
+    TRAYS.recipe.push(dish.recipe);
 
     const emptyTrays = [];
     TRAYS.forEach((tray) => {
@@ -72,14 +76,14 @@ const callOrders = (tray) => {
 
     if (busyStatus === 'free') {
         setTimeout(() => {
-                createOrder(TRAYS, Dishes[randomize(0, Dishes.length - 1, 0)]);
+                createOrder(TRAYS, Dishes[randomize(0, Dishes.length - 1)]);
             },
-            randomize(100, 200, 0));
+            randomize(100, 200));
     }
 }
 
-setInterval(callOrders, randomize(200, 500, 0));
+setInterval(callOrders, randomize(200, 500));
 
 // console.log(busyStatus);
 
-export {TRAYS, callOrders};
+export {TRAYS, Dishes, callOrders};
