@@ -236,6 +236,17 @@ main section:first-of-type {
     animation-fill-mode: forwards;
 }
 
+    /* Bar */
+
+.bar--table {
+    position: absolute;
+    min-width: 100vw;
+    height: 50px;
+    background: url("resource/bar.jpg") no-repeat;
+    z-index: 5;
+}
+    
+
     /* Customers */
 
 #client-base {
@@ -244,12 +255,14 @@ main section:first-of-type {
     list-style: none;
     padding: 0;
     margin: 0;
+    height: 268px;
     /*left: -700px;*/
 }
 
 .customer-column {
     display: flex;
     min-width: 200px;
+    z-index: -2;
 }
 
 .customer {
@@ -257,22 +270,27 @@ main section:first-of-type {
     height: 385px;
     position: relative;
     bottom: 116px;
-    z-index: -2;
     background-repeat: no-repeat;
 }
 
 .customer-spawn {
-    left: -402px;
-    animation-name: appear;
-    animation-duration: 0.7s;
-    animation-timing-function: cubic-bezier(0.1, 0.3, 0.9, 0.5);
+    animation-name: up-down;
+    animation-duration: 1.8s;
+    animation-timing-function: cubic-bezier(.56,.52,.83,.98);
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
-.customer-leave {
+
+.customer-column > .customer-leave {
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 3s;
+    position: relative;
+    animation: leave-up;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(.56,.52,.83,.98);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
     /* Visitors */
@@ -319,3 +337,28 @@ main section:first-of-type {
     from {top: -32px;}
     to {top: 20px;}
 }
+/* 
+@keyframes leave-up {
+    from {left: 700px}
+    35% {top: -116px;}
+    37% {top: -125px;}
+    39% {top: -120px;}
+    to {left: 800px;}
+} */
+
+@keyframes up-down {
+    from {left: -1052px; top: -116px;}
+    25% {top: -106px;}
+    47% {top: -116px;}
+    79% {top: -110px;}
+    to {left: 20px; top: -116px;};
+}
+
+@keyframes leave-up {
+    from {left: 20px; top: -116px;}
+    35% {top: -106px;}
+    47% {top: -116px;}
+    79% {top: -110px;}
+    to {left: 700px; top: -116px;};
+}
+
